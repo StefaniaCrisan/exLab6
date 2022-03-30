@@ -26,9 +26,8 @@ public class ExercitiiTema {
     }
 
     static void printArr(int arr[], int target) {
-        for (int i = 0; i < target; i++) {
+        for (int i = 0; i < target; i++)
             System.out.print(arr[i] + " ");
-        }
     }
 
     // Function to generate a list of
