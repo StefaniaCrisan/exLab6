@@ -1,6 +1,7 @@
 package ro.fasttrackit.lab6.tema;
 
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.Random;
 import java.lang.String;
 import java.util.regex.Pattern;
@@ -11,29 +12,39 @@ public class ExercitiiTema {
         System.out.println("1. Produsul numerelor: " + produsIntregiSir(new int[]{1, 22, 3, 43, 5, 61, 7}));
         System.out.println(numereImpare(new int[]{1, 2, 3, 4, 5, 6, 7}));
         System.out.println(numereMaiMici(new int[]{1, 2, 3, 4, 5, 6, 7}, 5));
-        System.out.println("4. Donatiile sunt: " + donatii(10000));
-        separare("Tema lab 6. Fasttrackit. Curs Java");
+        System.out.print("Donatiile sunt: ");
+        randomList(10, 10000);
+        System.out.println(separare("Tema lab 6. Fasttrackit. Curs Java"));
     }
 
     private static String separare(String fraza) {
-        System.out.println("Propozitiile sunt: ");
+        System.out.println("\nPropozitiile sunt: ");
         String[] arrOfStr = fraza.split(Pattern.quote(". "));
         for (String a : arrOfStr)
             System.out.println(a);
         return fraza;
     }
 
-    private static int donatii(int target) {
-        int donatie=0;
-      int[] sir=new int[10];
-        Random random = new Random();
-        for (int i = 0; i < sir.length; i++) {
-                donatie = random.nextInt(target-donatie);
-                System.out.println(donatie);
-                sir[i]=donatie;
+    static void printArr(int arr[], int target) {
+        for (int i = 0; i < target; i++)
+            System.out.print(arr[i] + " ");
+    }
 
+    // Function to generate a list of
+    // m random non-negative integers
+    // whose sum is n
+    static void randomList(int numere, int target) {
+        // Create an array of size m where
+        // every element is initialized to 0
+        int arr[] = new int[numere];
+        // To make the sum of the final list as n
+        for (int i = 0; i < target; i++) {
+            // Increment any random element
+            // from the array by 1
+            arr[(int) (Math.random() * numere)]++;
         }
-        return donatie;
+        // Print the generated list
+        printArr(arr, numere);
     }
 
     private static int numereMaiMici(int[] sir, int numar) {
@@ -66,5 +77,4 @@ public class ExercitiiTema {
         }
         return rezultat;
     }
-
 }
